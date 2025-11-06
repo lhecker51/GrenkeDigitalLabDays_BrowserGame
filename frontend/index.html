@@ -7,13 +7,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/95css@latest/css/95css.min.css" />
     </head>
     <body>
-        <button onclick="play_maze_minigame()">[DEBUG] Play Maze Game</button>
+        <script type="module" src="../backend/mazes/mazes.js"></script>
+        <button id="play_maze_btn">[DEBUG] Play Maze Game</button>
         <canvas id="maze_canvas"></canvas>
-        <script>
-            import {maze_minigame} from "../backend/mazes/mazes"
-            function play_maze_minigame() {
-                maze_minigame.play()
-            }
-        </script>
     </body>
 </html>
