@@ -5,18 +5,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Desktop</title>
         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="utilities/spacing.scss" />
         <script src="app.js"></script>
+        <style>
+            body {
+                background-image: url("recources/wallpaper_logo.jpg");
+                background-size: 100%;
+            }
+        </style>
     </head>
     <body>
         <!--LISA-->
         <audio id="windows_boot" src="recources/windows_95_startup_sound.mp3"></audio>
+        <div class="desktop_icons">
+            <img src="recources/Flying Windows.ico">
+            <div>icon1</div>
+            <div>icon1</div>
+            <div>icon1</div>
+        </div>
         <header>
-            <a href="index.html" class="logo">95CSS</a>
-            <nav>
+            <a href="index.html" class="logo">
+                <img src="recources/logo.png" width="30">
+                <b>Start</b></a>
+            <nav class="taskbar">
                 <a href="index.html" class="is-active">Home</a>
-                <a href="grid.html">Grid</a>
-                <a href="dimensions.html">Dimensions</a>
-                <a href="spacing.html">Spacing</a>
+                <a id="time_item">
+                    <div id="time">    
+                    </div>
+                </a>
             </nav>
         </header>
 
