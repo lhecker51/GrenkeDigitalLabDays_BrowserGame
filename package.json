@@ -1,0 +1,18 @@
+{
+  "name": "grenkedigitallabdays_browsergame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lhecker51/GrenkeDigitalLabDays_BrowserGame.git"
+  },
+  "private": true,
+  "dependencies": {
+    "@types/matter-js": "0.10.9",
+    "matter-js": "^0.20.0"
+  }
+}
