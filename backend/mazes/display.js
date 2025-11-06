@@ -76,6 +76,18 @@ export class visualiser {
         context.clearRect(0, 0, canvas.width, canvas.height);
         this.visualizeMaze()
 
+        context.fillStyle = "#"
+        context.beginPath()
+        context.arc(
+            (15) * cellSize,
+            (15) * cellSize,
+            cellSize * 5,
+            0,
+            Math.PI * 2
+        )
+
+        context.fill()
+
         let i = 0
         for (let playerObject in playerObjects) {
             switch (directions[i]) {
