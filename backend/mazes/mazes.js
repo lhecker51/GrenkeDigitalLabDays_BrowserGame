@@ -12,6 +12,7 @@ import {visualiser} from "./display.js"
 document.getElementById("play_maze_btn").onclick = play
 
 let tickRate = 400  // milliseconds
+let isRunning = false
 const opponent_strategies = [
     new RandomStrategy(),
     new SemiRandomStrategy(),
@@ -26,6 +27,8 @@ document.onkeydown = (e) => {
 }
 
 function play() {
+    isRunning = true
+
     const maze = generator.generateWilson(25)
     let opponent_paths = []
     for (let strategy of opponent_strategies) {
@@ -33,4 +36,14 @@ function play() {
     }
 
     visualiser.visualizeMaze(maze)
+
+    const tickInterval = setInterval(function () {
+        document.getElementById("debug").textContent += " debug"
+    }, tickRate)
+
+    document.getElementById("stop_maze").onclick = () => clearInterval(tickInterval)
+}
+
+function processTick() {
+    document.getElementById("debug").textContent = "hello"
 }
