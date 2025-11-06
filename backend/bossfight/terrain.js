@@ -6,6 +6,8 @@ const world = engine.world;
 const canvas = document.getElementById("arena");
 const width = canvas.width;
 const height = canvas.height;
+const platformWidth = 125;
+const platformHeight = 25;
 // Renderer (Canvas) erstellen
 const render = Render.create({
     engine: engine,
@@ -22,15 +24,15 @@ Render.run(render);
 Runner.run(Runner.create(), engine);
 
 // Arena Platformen hinzufügen
-const platformLeft = Bodies.rectangle(150, 500, 125, 25, {
+const platformLeft = Bodies.rectangle(width*0.15, height*0.85, platformWidth, platformHeight, {
     isStatic: true,
     render: { fillStyle: "#2ecc71" }
 });
-const platformRight = Bodies.rectangle(650, 500, 125, 25, {
+const platformRight = Bodies.rectangle(width*0.85, height*0.85, platformWidth, platformHeight, {
     isStatic: true,
     render: { fillStyle: "#2ecc71" }
 });
-const platformTop = Bodies.rectangle(400, 350, 150, 25, {
+const platformTop = Bodies.rectangle(width*0.5, height*0.65, platformWidth, platformHeight, {
     isStatic: true,
     render: { fillStyle: "#2ecc71" }
 });
@@ -39,7 +41,7 @@ World.add(world, platformRight);
 World.add(world, platformTop);
 //
 //Adding walls around everywhere but the floor
-const rightWall = Bodies.rectangle(775, 0, 50, 1200, {
+const rightWall = Bodies.rectangle(width-25, 0, 50, 1200, {
     isStatic: true,
     render: { fillStyle: "rgb(0, 0, 0)" }
 });
@@ -53,7 +55,7 @@ World.add(world, leftWall);
 //Adding player
 const playerHealth = 5;
 for (let i = 0; i < playerHealth; i++) {
-    const healthIndicator = Bodies.circle(30 +i*40, 30, 15, {
+    const healthIndicator = Bodies.circle(80 +i*40, 30, 15, {
         isStatic: true,
         isSensor: true,
             render: { fillStyle: "rgb(255 0 25)" }
@@ -61,9 +63,11 @@ for (let i = 0; i < playerHealth; i++) {
     World.add(world, healthIndicator);
 }
 
-const player = Bodies.rectangle(400, 200, 50, 50, {
+const player = Bodies.rectangle(width*0.5, height*0.4, 50, 50, {
     render: { fillStyle: "#3498db" }
 });
+
+canvas.addEventListener('keydown', (ev) => {})
 
 
 
