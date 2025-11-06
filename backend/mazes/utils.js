@@ -16,13 +16,6 @@ export class Environment {
     }
 }
 
-export class LabyrinthCategory {
-    constructor(name, labyrinths) {
-        this.name = name
-        this.labyrinths = labyrinths
-    }
-}
-
 export class Strategy {
     constructor(name) {
         this.name = name
