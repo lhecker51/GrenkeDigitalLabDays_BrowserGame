@@ -172,3 +172,30 @@ input:not([type=range]):not([type=checkbox]):not([type=radio]):disabled, input:n
 .login_body {
     padding: var(--spacing-10);
 }
+.toolbar {
+    display: flex;
+    gap: var(--spacing-5);
+    .btn-group {
+        display: flex;
+        gap: 0;
+    }
+}
+
+header {
+    background-color: var(--color-gray-200);
+    box-shadow: var(--shadow-outer-4);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3);
+}
+@mixin checkered-bg {
+    background-image:  repeating-linear-gradient(45deg, var(--color-gray-100) 25%, transparent 25%, transparent 75%, var(--color-gray-100) 75%, var(--color-gray-100)), repeating-linear-gradient(45deg, var(--color-gray-100) 25%, var(--color-white) 25%, var(--color-white) 75%, var(--color-gray-100) 75%, var(--color-gray-100));
+    background-position: 0 0, 3px 3px;
+    background-size: 6px 6px;
+}
