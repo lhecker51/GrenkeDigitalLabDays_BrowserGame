@@ -13,15 +13,24 @@
                 background-size: 100%;
             }
         </style>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     </head>
     <body>
         <!--LISA-->
         <audio id="windows_boot" src="recources/windows_95_startup_sound.mp3"></audio>
         <div class="desktop_icons">
-            <img src="recources/Flying Windows.ico">
-            <div>icon1</div>
-            <div>icon1</div>
-            <div>icon1</div>
+            <div>
+                <img src="recources/Flying Windows.ico" id="start_emilia" width="50">
+                <p>start</p>
+            </div>
+            <div>
+                <img src="recources/Recycle Bin with paper.ico" width="50">
+                <p>maze solver</p>
+            </div>
+            <div>
+                <img src="recources/Documents Folder.ico" width="50">
+                <p>final boss</p>
+            </div>
         </div>
         <header>
             <a href="index.html" class="logo">
@@ -35,15 +44,30 @@
                 </a>
             </nav>
         </header>
+
         <!--/LISA-->
         <!--EMILIA-->
         <script type="module" src="../../backend/mazes/mazes.js"></script>
-        <button id="play_maze_btn">[DEBUG] Play Maze Game</button>
+        <!--<button id="play_maze_btn">[DEBUG] Play Maze Game</button>-->
         <button id="stop_maze">[DEBUG] Stop</button>
         <p id="debug">Debug:</p>
-        <canvas id="maze_canvas"></canvas>
+
+        <dialog open class="is-lg" id="test">
+            <div class="dialog-header">
+                <h2>Maze Solver</h2>
+            </div>
+            <div class="dialog-body">
+                <div class="toolbar">
+                    <canvas id="maze_canvas"></canvas>
+                </div>
+            </div>
+        </dialog>
+        
         <!--/EMILIA-->
         <!--ROBIN-->
+        <!--<button id="createBox" > [DEBUG] Box </button>
+        <canvas id="arena" width="1000" height="600"> </canvas>
+        <script type="module" src="../../backend/bossfight/terrain.js"> </script>-->
         <!--/ROBIN-->
     </body>
 </html>
