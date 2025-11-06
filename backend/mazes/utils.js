@@ -7,6 +7,13 @@ export class Position {
     }
 }
 
+export class PlayerObject {
+    constructor(position, colour) {
+        this.position = position
+        this.colour = colour
+    }
+}
+
 export class Environment {
     constructor(u, d, l, r) {
         this.u = u
