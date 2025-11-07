@@ -11,6 +11,7 @@ let cellSize
 export class visualiser {
     static reset() {
         playerObjects = []
+        context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     static setMaze(maze) {
@@ -38,9 +39,6 @@ export class visualiser {
 
         canvas.width = cols * cellSize;
         canvas.height = rows * cellSize;
-
-
-        context.clearRect(0, 0, canvas.width, canvas.height);
 
         for (let y = 0; y < rows; y++) {
             for (let x = 0; x < cols; x++) {
@@ -76,7 +74,7 @@ export class visualiser {
         context.clearRect(0, 0, canvas.width, canvas.height);
         this.visualizeMaze()
 
-        context.fillStyle = "#"
+        context.fillStyle = "#ff0000"
         context.beginPath()
         context.arc(
             (15) * cellSize,

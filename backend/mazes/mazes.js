@@ -34,6 +34,11 @@ document.onkeydown = (e) => {
     }
 }
 
+function stop() {
+    isRunning = false
+    visualiser.reset()
+}
+
 function play() {
     document.getElementById("test").style.visibility = 'visible';
     opponent_paths = []
