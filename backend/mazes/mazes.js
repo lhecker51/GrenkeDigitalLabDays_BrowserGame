@@ -10,6 +10,7 @@ import {DfsStrategy} from "./strategies/directed_dfs.js"
 import {visualiser} from "./display.js"
 
 document.getElementById("start_emilia").onclick = play
+document.getElementById("stop_emilia").onclick = stop
 
 let tickRate = 400  // milliseconds
 let isRunning = false
@@ -40,7 +41,6 @@ function stop() {
 }
 
 function play() {
-    document.getElementById("test").style.visibility = 'visible';
     opponent_paths = []
     visualiser.reset()
     isRunning = true
@@ -67,7 +67,7 @@ function processTick() {
     let playerWon = adjustPlayerPosition(playerDirection)
 
     let directions = [playerDirection]
-    for (let opponent_path in opponent_paths) {
+    for (let opponent_path of opponent_paths) {
         if (tick >= opponent_path.length) {
             return false
         }
@@ -82,6 +82,8 @@ function processTick() {
 }
 
 function calculatePlayerDirection() {
+    console.log(maze)
+    console.log(playerPosition)
     let environment = solver.getEnvironment(maze, playerPosition)
     return checkDirection(environment, lastPressedKey) ? getDirectionFromKey(lastPressedKey) : " "
 }
