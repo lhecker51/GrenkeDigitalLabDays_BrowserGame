@@ -9,7 +9,7 @@ import {HoldRightStrategy} from "./strategies/hold_right.js"
 import {DfsStrategy} from "./strategies/directed_dfs.js"
 import {visualiser} from "./display.js"
 
-document.getElementById("start_emilia").onclick = play
+document.getElementById("start_emilia").ondblclick = play
 
 let tickRate = 400  // milliseconds
 let isRunning = false

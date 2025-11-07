@@ -1,8 +1,10 @@
 window.onload = function() {
     document.getElementById("windows_boot").play();
     document.getElementById("dialog_emilia").style.visibility = 'hidden';
+    document.getElementById("dialog_lisa").style.visibility = 'hidden';
 }
 
+document.getElementById("start_lisa").ondblclick = start
 
 window.transitionToPage = function(href) {
     document.querySelector('body').style.opacity = 0
@@ -25,3 +27,7 @@ function updateTime() {
 }
 setInterval(updateTime, 1000);
 updateTime();
+
+function start() {
+    document.getElementById("dialog_lisa").style.visibility = 'visible';
+}
