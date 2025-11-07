@@ -249,7 +249,7 @@ header nav a:active, header nav a.is-active,
     cursor: pointer;
 }
 
-.is_lg {
+/*#dialog_emilia, #dialog_lisa {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -262,4 +262,17 @@ header nav a:active, header nav a.is-active,
   justify-content: center;
   align-items: center;
   height: 100%;
+}*/
+
+.dialog_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+dialog.is-lg,
+.dialog.is-lg {
+  min-width: 500px;
+  min-height: 300px;
 }
