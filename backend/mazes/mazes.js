@@ -25,7 +25,7 @@ const opponent_strategies = [
     //new SemiRandomStrategy(),
     //new HoldLeftStrategy(),
     //new HoldRightStrategy(),
-    //new DfsStrategy()
+    new DfsStrategy()
 ]
 
 let lastPressedKey = "w"
@@ -36,13 +36,14 @@ document.onkeydown = (e) => {
 }
 
 function stop() {
-    document.getElementById("dialog_emilia").style.visibility = 'hidden';
+    document.getElementById("dialog_emilia").style.visibility = 'hidden'
+    document.getElementById("maze_win_message").textContent = ""
     isRunning = false
     visualiser.reset()
 }
 
 function play() {
-    document.getElementById("dialog_emilia").style.visibility = 'visible';
+    document.getElementById("dialog_emilia").style.visibility = 'visible'
   
     opponent_paths = []
     visualiser.reset()
@@ -59,6 +60,8 @@ function play() {
         opponent_paths.push(solver.solve(maze, strategy))
         visualiser.addPlayerObject(startingPosition, false)
     }
+
+    console.log(opponent_paths)
 
     processTick()
 }
