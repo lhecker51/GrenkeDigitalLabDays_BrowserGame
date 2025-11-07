@@ -93,7 +93,7 @@ export class visualiser {
                     break
             }
 
-            context.fillStyle = playerObject.color
+            context.fillStyle = playerObject.colour
             context.arc(
                 (playerObject.position.x + 0.5) * cellSize,
                 (playerObject.position.y + 0.5) * cellSize,

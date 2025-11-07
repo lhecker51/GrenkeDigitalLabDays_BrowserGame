@@ -12,20 +12,20 @@ import {visualiser} from "./display.js"
 document.getElementById("start_emilia").ondblclick = play
 document.getElementById("stop_emilia").onclick = stop
 
-let tickRate = 400  // milliseconds
+let tickRate = 200  // milliseconds
 let isRunning = false
 let tick = 0
 let playerPosition
 let maze
 let opponent_paths = []
 const opponent_strategies = [
-    new RandomStrategy(),
-    new SemiRandomStrategy(),
-    new SemiRandomStrategy(),
-    new SemiRandomStrategy(),
-    new HoldLeftStrategy(),
-    new HoldRightStrategy(),
-    new DfsStrategy()
+    //new RandomStrategy(),
+    //new SemiRandomStrategy(),
+    //new SemiRandomStrategy(),
+    //new SemiRandomStrategy(),
+    //new HoldLeftStrategy(),
+    //new HoldRightStrategy(),
+    //new DfsStrategy()
 ]
 
 let lastPressedKey = "w"
@@ -49,7 +49,7 @@ function play() {
     isRunning = true
     tick = 0
 
-    maze = generator.generateWilson(25)
+    maze = generator.generateWilson(21)
     const startingPosition = solver.getStartingPosition(maze)
     visualiser.setMaze(maze)
 
@@ -60,33 +60,36 @@ function play() {
         visualiser.addPlayerObject(startingPosition, false)
     }
 
-    const playerWon = processTick()
+    processTick()
 }
 
 function processTick() {
-    document.getElementById("debug").textContent += " debug"
-
     let playerDirection = calculatePlayerDirection()
-    let playerWon = adjustPlayerPosition(playerDirection)
 
     let directions = [playerDirection]
     for (let opponent_path of opponent_paths) {
         if (tick >= opponent_path.length) {
-            return false
+            document.getElementById("maze_win_message").textContent = "You lost..."
+            isRunning = false
+            visualiser.reset()
+            return
         }
         directions.push(opponent_path[tick])
     }
 
     visualiser.movePlayerObjects(directions)
-    if (playerWon) return true
+    if (maze[playerPosition.y][playerPosition.x] === "E") {
+        document.getElementById("maze_win_message").textContent = "You won!"
+        isRunning = false
+        visualiser.reset()
+        return
+    }
 
     tick++
     if (isRunning) setTimeout(processTick, tickRate)
 }
 
 function calculatePlayerDirection() {
-    console.log(maze)
-    console.log(playerPosition)
     let environment = solver.getEnvironment(maze, playerPosition)
     return checkDirection(environment, lastPressedKey) ? getDirectionFromKey(lastPressedKey) : " "
 }
@@ -107,15 +110,4 @@ function checkDirection(environment, direction) {
         case "a": return environment.l !== "X"
         case "d": return environment.r !== "X"
     }
-}
-
-function adjustPlayerPosition(direction) {
-    switch (direction) {
-        case "U": playerPosition.y--; break
-        case "D": playerPosition.y++; break
-        case "L": playerPosition.x--; break
-        case "R": playerPosition.x++; break
-        case " ": break
-    }
-    return maze[playerPosition.y][playerPosition.x] === "E"
 }
