@@ -35,7 +35,7 @@ document.onkeydown = (e) => {
 }
 
 function play() {
-    document.getElementById("test").style.visibility = 'visible';
+    document.getElementById("dialog_emilia").style.visibility = 'visible';
     opponent_paths = []
     visualiser.reset()
     isRunning = true
