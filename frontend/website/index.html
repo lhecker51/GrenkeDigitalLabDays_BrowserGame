@@ -6,6 +6,7 @@
         <title>Desktop</title>
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="utilities/spacing.scss" />
+        <script src="https://unpkg.com/@nicesapien0/typewriter.js/typewriter.js"></script>
         <style>
             body {
                 background-image: url("recources/wallpaper_logo.jpg");
@@ -28,7 +29,7 @@
                 <p>maze solver</p>
             </div>
             <div>
-                <img src="recources/Documents Folder.ico" width="50">
+                <img src="recources/Documents Folder.ico" id="start_robin" width="50">
                 <p>final boss</p>
             </div>
         </div>
@@ -44,37 +45,46 @@
                 </a>
             </nav>
         </header>
-        <dialog open class="is-lg" id="dialog_lisa">
-            <div class="dialog-header">
-                <h2>Start</h2>
-                <button id="stop_lisa">x</button>
-            </div>
-            <div class="dialog-body">
-                <div class="toolbar">
-                    <canvas id="start_canvas"></canvas>
+        <div class="dialog_container">
+            <dialog open class="is-lg" id="dialog_lisa">
+                <div class="dialog-header">
+                    <h2>Start</h2>
+                    <button id="stop_lisa">x</button>
                 </div>
-            </div>
-        </dialog>
+                <div class="dialog-body">
+                    <div class="toolbar">
+                        <audio id="gamesong" src="recources/gamesong_lara.mp3"></audio>
+                        <div id="demo"></div>
+                    </div>
+                </div>
+            </dialog>
+        </div>
         <!--/LISA-->
         <!--EMILIA-->
         <script type="module" src="../../backend/mazes/mazes.js"></script>
-        <dialog open class="is-lg" id="dialog_emilia">
-            <div class="dialog-header">
-                <h2>Maze Solver</h2>
-                <button id="stop_emilia">x</button>
-            </div>
-            <div class="dialog-body">
-                <div class="toolbar">
-                    <canvas id="maze_canvas"></canvas>
-                    <p id="maze_win_message"></p>
+        <p id="debug">Debug:</p>
+        <div class="dialog_container">
+            <dialog open class="is-lg" id="dialog_emilia">
+                <div class="dialog-header">
+                    <h2>Maze Solver</h2>
+                    <button id="stop_emilia">x</button>
                 </div>
-            </div>
-        </dialog>
+                <div class="dialog-body">
+                    <div class="toolbar">
+                        <canvas id="maze_canvas"></canvas>
+                        <p id="maze_win_message"></p>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+        
         <!--/EMILIA-->
         <!--ROBIN-->
-        <!--<button id="createBox" > [DEBUG] Box </button>
-        <canvas id="arena" width="1000" height="600"> </canvas>
-        <script type="module" src="../../backend/bossfight/terrain.js"> </script>-->
+        <button id="createBox" > [DEBUG] Box </button>
+        <canvas id="arena" width="1000" height="600"style="outline: none;" tabindex="1">
+        </canvas>
+        <p id="debug_text">this is a debug text</p>
+        <script type="module" src="../../backend/bossfight/terrain.js"> </script>
         <!--/ROBIN-->
     <script src="app.js"></script>
     </body>
