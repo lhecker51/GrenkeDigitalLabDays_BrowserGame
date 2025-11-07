@@ -5,6 +5,8 @@ window.onload = function() {
 }
 
 document.getElementById("start_lisa").ondblclick = start
+document.getElementById("stop_lisa").onclick = stop
+
 
 window.transitionToPage = function(href) {
     document.querySelector('body').style.opacity = 0
@@ -30,4 +32,8 @@ updateTime();
 
 function start() {
     document.getElementById("dialog_lisa").style.visibility = 'visible';
+}
+
+function stop() {
+    document.getElementById("dialog_lisa").style.visibility = 'hidden';
 }

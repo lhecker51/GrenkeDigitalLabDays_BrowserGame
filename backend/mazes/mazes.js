@@ -36,6 +36,7 @@ document.onkeydown = (e) => {
 }
 
 function stop() {
+    document.getElementById("dialog_emilia").style.visibility = 'hidden';
     isRunning = false
     visualiser.reset()
 }
