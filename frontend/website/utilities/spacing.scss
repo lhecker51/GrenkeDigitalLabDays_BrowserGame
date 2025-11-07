@@ -1,0 +1,92 @@
+@for $i from 1 through 10 {
+    .m-#{$i} {
+        margin: var(--spacing-#{$i});
+    }
+
+    .m-t-#{$i} {
+        margin-top: var(--spacing-#{$i});
+    }
+
+    .m-b-#{$i} {
+        margin-bottom: var(--spacing-#{$i});
+    }
+
+    .m-l-#{$i} {
+        margin-left: var(--spacing-#{$i});
+    }
+
+    .m-r-#{$i} {
+        margin-right: var(--spacing-#{$i});
+    }
+
+    .m-x-#{$i} {
+        margin-left: var(--spacing-#{$i});
+        margin-right: var(--spacing-#{$i});
+    }
+
+    .m-y-#{$i} {
+        margin-top: var(--spacing-#{$i});
+        margin-bottom: var(--spacing-#{$i});
+    }
+}
+
+@for $i from 1 through 10 {
+    .gap-#{$i} {
+        gap: var(--spacing-#{$i});
+    }
+}
+
+.grid {
+    --grid-col-span: 1;
+    --grid-row-span: 1;
+    --grid-gap: var(--spacing-4);
+
+    display: grid;
+    gap: var(--grid-gap);
+    /*grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto;*/
+    grid-auto-flow: row;
+}
+
+
+/*
+ *  Grid modifiers
+ */
+$gaps: 1,2,3,4,5,6,7,8,9,10;
+@each $gap in $gaps {
+    .grid-gap-#{$gap} {
+        --grid-gap: var(--spacing-#{$gap});
+    }
+}
+
+.col {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: span var(--grid-col-span);
+    grid-row-end: span var(--grid-row-span);
+}
+
+/*
+ *  Grid column modifiers
+ */
+$spans: 1,2,3,4,5,6,7,8,9,10,11,12;
+
+// Column widths
+@each $span in $spans {
+    .col-span-#{$span} {
+        --grid-col-span: #{$span};
+    }
+}
+
+// Column starting postions
+@each $span in $spans {
+    .col-start-#{$span} {
+        --grid-col-start: #{$span};
+    }
+}
+
+// Column ending postions
+@each $span in $spans {
+    .col-end-#{$span} {
+        --grid-col-start: -#{$span};
+    }
+}

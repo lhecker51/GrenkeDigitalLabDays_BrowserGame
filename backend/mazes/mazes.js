@@ -9,7 +9,7 @@ import {HoldRightStrategy} from "./strategies/hold_right.js"
 import {DfsStrategy} from "./strategies/directed_dfs.js"
 import {visualiser} from "./display.js"
 
-document.getElementById("play_maze_btn").onclick = play
+document.getElementById("start_emilia").onclick = play
 
 let tickRate = 400  // milliseconds
 let isRunning = false
@@ -35,6 +35,7 @@ document.onkeydown = (e) => {
 }
 
 function play() {
+    document.getElementById("test").style.visibility = 'visible';
     opponent_paths = []
     visualiser.reset()
     isRunning = true

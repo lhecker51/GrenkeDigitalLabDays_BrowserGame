@@ -194,8 +194,57 @@ header {
     gap: var(--spacing-3);
     padding: var(--spacing-3);
 }
+
+header nav a,
+.nav-item,
+.logo {
+  color: var(--color-black);
+  text-decoration: none;
+  background-color: var(--color-gray-200);
+  box-shadow: var(--shadow-outer-4);
+  position: relative;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  min-width: 160px;
+}
+
+header nav a:active, header nav a.is-active,
+.nav-item:active,
+.nav-item.is-active,
+.logo:active,
+.logo.is-active {
+  box-shadow: var(--shadow-inner-3);
+  background-color: var(--color-white);
+  background-image: repeating-linear-gradient(45deg, var(--color-gray-100) 25%, transparent 25%, transparent 75%, var(--color-gray-100) 75%, var(--color-gray-100)), repeating-linear-gradient(45deg, var(--color-gray-100) 25%, var(--color-white) 25%, var(--color-white) 75%, var(--color-gray-100) 75%, var(--color-gray-100));
+  background-position: 0 0, 3px 3px;
+  background-size: 6px 6px;
+}
+
+.logo {
+  min-width: 0;
+}
 @mixin checkered-bg {
     background-image:  repeating-linear-gradient(45deg, var(--color-gray-100) 25%, transparent 25%, transparent 75%, var(--color-gray-100) 75%, var(--color-gray-100)), repeating-linear-gradient(45deg, var(--color-gray-100) 25%, var(--color-white) 25%, var(--color-white) 75%, var(--color-gray-100) 75%, var(--color-gray-100));
     background-position: 0 0, 3px 3px;
     background-size: 6px 6px;
+}
+.taskbar {
+    display: flex;
+
+}
+.taskbar #time_item {
+    margin-left: 1400px;
+} 
+
+.desktop_icons {
+    margin-top: 50px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+#start_emilia:hover {
+    cursor: pointer;
 }
