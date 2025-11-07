@@ -45,34 +45,37 @@
                 </a>
             </nav>
         </header>
-        <dialog open class="is-lg" id="dialog_lisa">
-            <div class="dialog-header">
-                <h2>Start</h2>
-                <button id="stop_lisa">x</button>
-            </div>
-            <div class="dialog-body">
-                <div class="toolbar">
-                    <audio id="gamesong" src="recources/gamesong_lara.mp3"></audio>
-                    <div id="demo"></div>
+        <div class="dialog_container">
+            <dialog open class="is-lg" id="dialog_lisa">
+                <div class="dialog-header">
+                    <h2>Start</h2>
+                    <button id="stop_lisa">x</button>
                 </div>
-            </div>
-        </dialog>
+                <div class="dialog-body">
+                    <div class="toolbar">
+                        <audio id="gamesong" src="recources/gamesong_lara.mp3"></audio>
+                        <div id="demo"></div>
+                    </div>
+                </div>
+            </dialog>
+        </div>
         <!--/LISA-->
         <!--EMILIA-->
         <script type="module" src="../../backend/mazes/mazes.js"></script>
         <p id="debug">Debug:</p>
-
-        <dialog open class="is-lg" id="dialog_emilia">
-            <div class="dialog-header">
-                <h2>Maze Solver</h2>
-                <button id="stop_emilia">x</button>
-            </div>
-            <div class="dialog-body">
-                <div class="toolbar">
-                    <canvas id="maze_canvas"></canvas>
+        <div class="dialog_container">
+            <dialog open class="is-lg" id="dialog_emilia">
+                <div class="dialog-header">
+                    <h2>Maze Solver</h2>
+                    <button id="stop_emilia">x</button>
                 </div>
-            </div>
-        </dialog>
+                <div class="dialog-body">
+                    <div class="toolbar">
+                        <canvas id="maze_canvas"></canvas>
+                    </div>
+                </div>
+            </dialog>
+        </div>
         
         <!--/EMILIA-->
         <!--ROBIN-->
