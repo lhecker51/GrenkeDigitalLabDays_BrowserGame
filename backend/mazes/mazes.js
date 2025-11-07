@@ -9,8 +9,8 @@ import {HoldRightStrategy} from "./strategies/hold_right.js"
 import {DfsStrategy} from "./strategies/directed_dfs.js"
 import {visualiser} from "./display.js"
 
-document.getElementById("start_emilia").onclick = play
-document.getElementById("stop_emilia").onclick = stop
+document.getElementById("start_emilia").ondblclick = play
+document.getElementById("stop_emilia").ondblclick = stop
 
 let tickRate = 400  // milliseconds
 let isRunning = false
@@ -41,6 +41,8 @@ function stop() {
 }
 
 function play() {
+    document.getElementById("dialog_emilia").style.visibility = 'visible';
+  
     opponent_paths = []
     visualiser.reset()
     isRunning = true
