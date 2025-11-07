@@ -51,6 +51,7 @@ const dashIndicator = Bodies.circle(80, 75, 15, {
         fillStyle: "rgb(255 255 0)"
     }
 });
+const wormBoss = Bodies.rectangle()
 
 //Creating boundaries and platform
 const platformLeft = Bodies.rectangle(width*0.15, height*0.85, platformWidth, platformHeight, {
@@ -81,7 +82,7 @@ const leftWall = Bodies.rectangle(25, 0, 50, 1200, {
     isStatic: true,
     render: { fillStyle: "rgb(0, 0, 0)" }
 });
-const player = Bodies.rectangle(width*0.5, height*0.4, 50, 50, {
+const player = Bodies.rectangle(startX, startY, 50, 50, {
     render: { fillStyle: "#3498db" }
 });
 
