@@ -6,6 +6,7 @@
         <title>Desktop</title>
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="utilities/spacing.scss" />
+        <script src="https://unpkg.com/@nicesapien0/typewriter.js/typewriter.js"></script>
         <style>
             body {
                 background-image: url("recources/wallpaper_logo.jpg");
@@ -28,7 +29,7 @@
                 <p>maze solver</p>
             </div>
             <div>
-                <img src="recources/Documents Folder.ico" width="50">
+                <img src="recources/Documents Folder.ico" id="start_robin" width="50">
                 <p>final boss</p>
             </div>
         </div>
@@ -51,11 +52,11 @@
             </div>
             <div class="dialog-body">
                 <div class="toolbar">
-                    <canvas id="start_canvas"></canvas>
+                    <audio id="gamesong" src="recources/gamesong_lara.mp3"></audio>
+                    <div id="demo"></div>
                 </div>
             </div>
         </dialog>
-
         <!--/LISA-->
         <!--EMILIA-->
         <script type="module" src="../../backend/mazes/mazes.js"></script>
