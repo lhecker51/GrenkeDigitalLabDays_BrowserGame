@@ -8,47 +8,47 @@
         <link rel="stylesheet" href="utilities/spacing.css" />
     </head>
     <body class="m-10">
-    <div id="login_dialog">
-        <dialog id="login_window" class="w-1\/2 preview">
-        <div class="dialog-header">
-            <h2>Welcome to Windows</h2>
-        </div>
-        <div class="dialog-body">
-            <div class="login_card">
-            <img src="recources/windows_95_key.png" width="100" />
-            <div class="field-group">
-                <p>Type a user name and password to log on to Windows.</p>
-                <div class="input-group">
-                <label for="user_name">User name:</label>
-                <input type="text" id="user_name" />
+        <div id="login_dialog">
+            <dialog id="login_window" class="w-1\/2 preview">
+            <div class="dialog-header">
+                <h2>Welcome to Windows</h2>
+            </div>
+            <div class="dialog-body">
+                <div class="login_card">
+                <img src="recources/windows_95_key.png" width="100" />
+                <div class="field-group">
+                    <p>Type a user name and password to log on to Windows.</p>
+                    <div class="input-group">
+                    <label for="user_name">User name:</label>
+                    <input type="text" id="user_name" />
+                    </div>
+                    <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" />
+                    </div>
                 </div>
-                <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" />
+                <button id="login_ok">OK</button>
+                <button onclick="document.getElementById('login_window').close()">Cancel</button>
                 </div>
             </div>
-            <button id="login_ok">OK</button>
-            <button onclick="document.getElementById('login_window').close()">Cancel</button>
-            </div>
+            </dialog>
         </div>
-        </dialog>
-    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("login_window").showModal();
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("login_window").showModal();
 
-        window.transitionToPage = function (href) {
-            document.body.style.opacity = 0;
-            setTimeout(function () {
-            window.location.href = href;
-            }, 1000);
-        };
+            window.transitionToPage = function (href) {
+                document.body.style.opacity = 0;
+                setTimeout(function () {
+                window.location.href = href;
+                }, 1000);
+            };
 
-        document.getElementById("login_ok").addEventListener("click", function () {
-            transitionToPage("index.html");
-        });
-        });
-    </script>
+            document.getElementById("login_ok").addEventListener("click", function () {
+                transitionToPage("index.html");
+            });
+            });
+        </script>
     </body>
 </html>

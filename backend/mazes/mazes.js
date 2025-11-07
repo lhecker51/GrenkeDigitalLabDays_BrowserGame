@@ -10,7 +10,7 @@ import {DfsStrategy} from "./strategies/directed_dfs.js"
 import {visualiser} from "./display.js"
 
 document.getElementById("start_emilia").ondblclick = play
-document.getElementById("stop_emilia").ondblclick = stop
+document.getElementById("stop_emilia").onclick = stop
 
 let tickRate = 400  // milliseconds
 let isRunning = false
@@ -36,6 +36,7 @@ document.onkeydown = (e) => {
 }
 
 function stop() {
+    document.getElementById("dialog_emilia").style.visibility = 'hidden';
     isRunning = false
     visualiser.reset()
 }
