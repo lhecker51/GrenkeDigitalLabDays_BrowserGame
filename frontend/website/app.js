@@ -1,6 +1,6 @@
 window.onload = function() {
     document.getElementById("windows_boot").play();
-    document.getElementById("test").style.visibility = 'hidden';
+    document.getElementById("dialog_emilia").style.visibility = 'hidden';
 }
 
 
@@ -25,4 +25,3 @@ function updateTime() {
 }
 setInterval(updateTime, 1000);
 updateTime();
-
