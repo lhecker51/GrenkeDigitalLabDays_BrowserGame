@@ -1,7 +1,8 @@
 window.onload = function() {
     document.getElementById("windows_boot").play();
-    document.getElementById("dialog_emilia").style.visibility = 'hidden';
-    document.getElementById("dialog_lisa").style.visibility = 'hidden';
+    document.getElementById("dialog_emilia").style.display = 'none';
+    document.getElementById("dialog_lisa").style.display = 'none';
+    document.getElementById("container_robin").style.display = 'none';
 }
 
 //saving name from login
@@ -14,6 +15,7 @@ function displaydata() {
     const savedUsername = localStorage.getItem('user_name');
     document.getElementById('savedData').innerText = user_name;
 }
+
 
 
 document.getElementById("start_lisa").ondblclick = start
@@ -61,7 +63,7 @@ function runTypewriterSequence(messages, current = 0) {
 
 
 function start() {
-    document.getElementById("dialog_lisa").style.visibility = 'visible';
+    document.getElementById("dialog_lisa").style.display = 'block';
     document.getElementById("gamesong").play();
     const username = localStorage.getItem("user_name") || "stranger";
     const text = [
@@ -98,7 +100,7 @@ function start() {
 }
 
 function stop() {
-    document.getElementById("dialog_lisa").style.visibility = 'hidden';
+    document.getElementById("dialog_lisa").style.display = 'none';
     document.getElementById("gamesong").pause();
 
 }

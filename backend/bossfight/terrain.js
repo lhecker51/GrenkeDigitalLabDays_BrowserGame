@@ -33,6 +33,9 @@ const platformHeight = 25;
 
 const startX = width*0.5
 const startY = height*0.4
+
+document.getElementById("start_robin").ondblclick = gamePlayLoop
+document.getElementById("stop_robin").onclick = startGameOver
 // Renderer (Canvas) erstellen
 const render = Render.create({
     engine: engine,
@@ -109,6 +112,7 @@ function addTerrain() {
 
 
 function gamePlayLoop() {
+    document.getElementById("container_robin").style.display = 'block';
     addTerrain()
     document.body.addEventListener('keydown', ev => {
         processKeyClick(ev);
@@ -236,6 +240,7 @@ function manageHit() {
     }
 }
 function startGameOver() {
+    document.getElementById("container_robin").style.display = 'none';
 
 }
 

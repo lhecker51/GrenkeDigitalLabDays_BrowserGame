@@ -38,16 +38,19 @@
             document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("login_window").showModal();
 
-            window.transitionToPage = function (href) {
-                document.body.style.opacity = 0;
-                setTimeout(function () {
-                window.location.href = href;
-                }, 1000);
-            };
+                window.transitionToPage = function (href) {
+                    document.body.style.opacity = 0;
+                    setTimeout(function () {
+                    window.location.href = href;
+                    }, 1000);
+                };
 
-            document.getElementById("login_ok").addEventListener("click", function () {
-                transitionToPage("index.html");
-            });
+                document.getElementById("login_ok").addEventListener("click", function () {
+                    const username = document.getElementById("user_name").value;
+                    localStorage.setItem("user_name", username);
+                    transitionToPage("index.html"); 
+                });
+
             });
         </script>
     </body>
