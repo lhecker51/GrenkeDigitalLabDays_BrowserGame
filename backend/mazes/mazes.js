@@ -36,13 +36,13 @@ document.onkeydown = (e) => {
 }
 
 function stop() {
-    document.getElementById("dialog_emilia").style.visibility = 'hidden';
+    document.getElementById("dialog_emilia").style.display = 'none';
     isRunning = false
     visualiser.reset()
 }
 
 function play() {
-    document.getElementById("dialog_emilia").style.visibility = 'visible';
+    document.getElementById("dialog_emilia").style.display = 'block';
   
     opponent_paths = []
     visualiser.reset()
