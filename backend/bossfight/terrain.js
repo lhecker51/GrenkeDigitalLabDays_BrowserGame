@@ -18,7 +18,10 @@ let keys = {
 
 //maximale geschwindigkeiten
 const maxX = 8
-const xSpeed = 0.025
+const xSpeed = 0.0025
+const jumpForce = 0.025
+const wormForceUp = 0.0325
+const wormForceDown = 0.025
 //I-Frames
 let iFrames = 0;
 const maxIFrames = 30;
@@ -28,8 +31,8 @@ const world = engine.world;
 const canvas = document.getElementById("arena");
 const width = canvas.width;
 const height = canvas.height;
-const platformWidth = 125;
-const platformHeight = 25;
+const platformWidth = width*0.125;
+const platformHeight = height*0.025;
 
 const startX = width*0.5
 const startY = height*0.4
@@ -54,7 +57,17 @@ const dashIndicator = Bodies.circle(80, 75, 15, {
         fillStyle: "rgb(255 255 0)"
     }
 });
-const wormBoss = Bodies.rectangle()
+
+const wormWidth = 300;
+const wormHeight = 100;
+const wormBody = Bodies.rectangle(width, height*1/2, wormWidth, wormHeight, {
+    isStatic: false,
+    isSensor: true,
+    render: {
+        fillStyle: "rgb(150 100 100)"
+    }
+})
+
 
 //Creating boundaries and platform
 const platformLeft = Bodies.rectangle(width*0.15, height*0.85, platformWidth, platformHeight, {
@@ -77,11 +90,11 @@ const firePlatform = Bodies.rectangle(0, height, width*2, 25, {
         render: { fillStyle: "rgb(255, 0, 0)" }
 })
 
-const rightWall = Bodies.rectangle(width-25, 0, 50, 1200, {
+const rightWall = Bodies.rectangle(width-25, 0, 50, height*2, {
     isStatic: true,
     render: { fillStyle: "rgb(0, 0, 0)" }
 });
-const leftWall = Bodies.rectangle(25, 0, 50, 1200, {
+const leftWall = Bodies.rectangle(25, 0, 50, height*2, {
     isStatic: true,
     render: { fillStyle: "rgb(0, 0, 0)" }
 });
@@ -107,6 +120,7 @@ function addTerrain() {
     World.add(world, rightWall);
     World.add(world, leftWall);
     World.add(world, player);
+    World.add(world, wormBody);
     addHealthBar()
 }
 
@@ -121,6 +135,7 @@ function gamePlayLoop() {
         checkInput()
         collisionDetector()
         dashManager()
+        moveBossUpDown()
         if (iFrames > 0) iFrames--
 
     })
@@ -153,17 +168,14 @@ function updateHealthBar() {
     for (let i = 0; i < healthTokens.length; i++) {
         if (i >= playerHealth) {
             healthTokens[i].render.fillStyle = "rgb(10, 10, 10)"
-            debug(i.toString());
         }
     }
-    debug("Test");
 }
 
 
 function processKeyClick(e) {
     const key = e.key.toLowerCase();
     if (key in keys) {
-        document.getElementById("debug_text").textContent = key.toString();
         keys[key] = true;
     }
 }
@@ -183,7 +195,7 @@ function checkInput() {
 
 function jump() {
     if (onGround === true) {
-        Matter.Body.applyForce(player, player.position, {x: 0, y:-0.05});
+        Matter.Body.applyForce(player, player.position, {x: 0, y:-jumpForce});
         onGround = false;
     }
 
@@ -226,7 +238,7 @@ function collisionDetector() {
     }
 }
 function resetPosition() {
-    Matter.Body.applyForce(player, player.position, {x: 0, y: -0.15} );
+    Matter.Body.applyForce(player, player.position, {x: 0, y: -jumpForce*2} );
 }
 
 function manageHit() {
@@ -241,6 +253,7 @@ function manageHit() {
 }
 function startGameOver() {
     document.getElementById("container_robin").style.display = 'none';
+    playerHealth = maxPlayerHealth
 
 }
 
@@ -253,5 +266,24 @@ function dashManager() {
     let greenValue = 255 - dashTimer*2
     dashIndicator.render.fillStyle = "rgb(" + redValue + ", " + greenValue + ", 0)"
     if (dashTimer > 0) dashTimer--;
+}
+let goingUp = true;
+const upperBound = 100
+const lowerBound = height - 325
+function moveBossUpDown() {
+    if (goingUp) {
+        if(wormBody.position.y > upperBound) {
+            Matter.Body.applyForce(wormBody, wormBody.position, {x: 0, y: -wormForceUp});
+        } else {
+            goingUp = false;
+        }
+    } else {
+        if(wormBody.position.y < lowerBound) {
+            Matter.Body.applyForce(wormBody, wormBody.position, {x: 0, y: -wormForceDown});
+        } else {
+            goingUp = true;
+        }
+    }
+
 }
 
